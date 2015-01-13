@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <jmxConfigurator/>
+
+    <turboFilter class="ch.qos.logback.classic.turbo.MDCFilter">
+        <MDCKey>Debug</MDCKey>
+        <Value>true</Value>
+        <OnMatch>ACCEPT</OnMatch>
+    </turboFilter>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %X{Profile} %X{Correlation-ID} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="net.sf.ehcache" level="INFO"/>
+    <logger name="org.apache" level="WARN"/>
+
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.jpa.internal.metamodel.MetadataContext" level="OFF"/>
+    <logger name="org.springframework.jdbc" level="DEBUG"/>
+    <logger name="org.hibernate.cache" level="DEBUG"/>
+
+    <logger name="org.springframework" level="WARN"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
