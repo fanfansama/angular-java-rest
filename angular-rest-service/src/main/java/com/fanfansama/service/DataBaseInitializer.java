@@ -1,17 +1,15 @@
 package com.fanfansama.service;
 
-import java.util.Date;
-
 import com.fanfansama.dal.dao.NewsEntryDao;
-import com.fanfansama.dal.model.User;
-import com.fanfansama.dal.dao.UserDao;
 import com.fanfansama.dal.model.NewsEntry;
-
+import com.fanfansama.dal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.Date;
+
 
 
 /**
@@ -19,14 +17,14 @@ import javax.annotation.PostConstruct;
  * 
  * @author Philip W. Sorst <philip@sorst.net>
  */
-//@Component
+@Component
 public class DataBaseInitializer
 {
-	//@Autowired
+	@Autowired
 	private NewsEntryDao newsEntryDao;
-	//@Autowired
-	private UserDao userDao;
-	//@Autowired
+	@Autowired
+	private NewsEntryDao.UserDao userDao;
+	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 

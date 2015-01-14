@@ -37,6 +37,6 @@ public class NewsEntryServiceImpl implements NewsEntryService {
 
     @Override
     public List<NewsEntry> findAll() {
-        return newsEntryDao.findAll();
+        return newsEntryDao.findCustom();
     }
 }
