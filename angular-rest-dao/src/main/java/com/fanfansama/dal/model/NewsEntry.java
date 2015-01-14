@@ -9,8 +9,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * JPA Annotated Pojo that represents a news entry.
- * 
- * @author Philip W. Sorst <philip@sorst.net>
  */
 @Entity
 @Table(name = "NEWS")

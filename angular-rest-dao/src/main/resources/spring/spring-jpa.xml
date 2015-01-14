@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
-    <jpa:repositories base-package="com.fanfansama.dal.dao"/>
+    <jpa:repositories base-package="com.fanfansama.dal.*"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="username" value="sa" />
@@ -18,9 +18,10 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource"
           p:persistenceProviderClass="org.hibernate.jpa.HibernatePersistenceProvider"
-          p:packagesToScan="com.*.dal.model"
+          p:packagesToScan="com.*.com.fanfansama.dal.model"
           p:persistenceUnitName="examplePersistanceUnit"
           p:jpaVendorAdapter-ref="jpaVendorAdapter"/>
+    <!-- depends-on="flyway" -->
 
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="generateDdl" value="true" />
