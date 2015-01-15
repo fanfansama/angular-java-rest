@@ -1,6 +1,7 @@
 package com.fanfansama.service;
 
 import com.fanfansama.dal.dao.NewsEntryDao;
+import com.fanfansama.dal.dao.UserDao;
 import com.fanfansama.dal.model.NewsEntry;
 import com.fanfansama.dal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class DataBaseInitializer
 	@Autowired
 	private NewsEntryDao newsEntryDao;
 	@Autowired
-	private NewsEntryDao.UserDao userDao;
+	private UserDao userDao;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 

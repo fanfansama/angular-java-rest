@@ -22,14 +22,7 @@ public class AuthenticationTokenProcessingFilter extends GenericFilterBean
 {
 
 	@Autowired
-	private final UserDetailsService userService;
-
-
-	public AuthenticationTokenProcessingFilter(UserDetailsService userService)
-	{
-		this.userService = userService;
-	}
-
+	private UserDetailsService userService;
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
