@@ -30,6 +30,9 @@
             <security:intercept-url pattern="/js/**" access="permitAll"/>
             <security:intercept-url pattern="/fonts/**" access="permitAll"/>
             <security:intercept-url pattern="*.ico" access="permitAll"/>
+            <security:intercept-url pattern="/rest/toto" access="permitAll" />
+            <security:intercept-url pattern="/toto" access="permitAll" />
+            <security:intercept-url pattern="/user" access="permitAll" />
             <security:intercept-url pattern="/rest/user/authenticate" access="permitAll" />
             <security:intercept-url method="GET" pattern="/rest/news/**" access="hasRole('user')" />
             <security:intercept-url method="PUT" pattern="/rest/news/**" access="hasRole('admin')" />

@@ -17,17 +17,11 @@ import javax.ws.rs.core.MediaType;
 import com.fanfansama.dal.JsonViews;
 import com.fanfansama.dal.model.NewsEntry;
 import com.fanfansama.service.NewsEntryService;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -44,7 +38,7 @@ public class NewsEntryResource
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String list() throws JsonGenerationException, JsonMappingException, IOException
+	public String list() throws IOException
 	{
 		log.info("list()");
 
@@ -111,7 +105,7 @@ public class NewsEntryResource
 
 	private boolean isAdmin()
 	{
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+/*		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = authentication.getPrincipal();
 		if (principal instanceof String && ((String) principal).equals("anonymousUser")) {
 			return false;
@@ -123,7 +117,7 @@ public class NewsEntryResource
 				return true;
 			}
 		}
-
+*/
 		return false;
 	}
 

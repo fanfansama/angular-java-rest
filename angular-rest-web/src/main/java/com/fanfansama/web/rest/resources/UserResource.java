@@ -11,19 +11,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+import com.fanfansama.service.UserService;
 import com.fanfansama.web.rest.TokenUtils;
 import com.fanfansama.web.transfer.TokenTransfer;
 import com.fanfansama.web.transfer.UserTransfer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 
@@ -33,11 +32,11 @@ public class UserResource
 {
 
 	@Autowired
-	private UserDetailsService userService;
+	private UserService userService; //UserDetailsService
 
-	@Autowired
+/*	@Autowired
 	@Qualifier("authenticationManager")
-	private AuthenticationManager authManager;
+*/	private AuthenticationManager authManager;
 
 
 	/**

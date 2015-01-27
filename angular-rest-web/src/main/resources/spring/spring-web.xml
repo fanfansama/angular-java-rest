@@ -16,7 +16,7 @@
 	
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
 
-	<import resource="classpath:/spring/spring-security.xml"/>
+	<!--<import resource="classpath:/spring/spring-security.xml"/>-->
 
 
 </beans>

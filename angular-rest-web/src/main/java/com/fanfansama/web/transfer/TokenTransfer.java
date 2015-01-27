@@ -1,4 +1,5 @@
-package com.fanfansama.web.transfer;
+ package com.fanfansama.web.transfer;
+
 
 import lombok.Getter;
 
