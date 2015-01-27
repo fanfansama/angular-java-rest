@@ -1,6 +1,7 @@
 package com.fanfansama.web.rest.resources;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.FormParam;
@@ -11,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+import com.fanfansama.dal.model.User;
 import com.fanfansama.service.UserService;
 import com.fanfansama.web.rest.TokenUtils;
 import com.fanfansama.web.transfer.TokenTransfer;
@@ -38,6 +40,13 @@ public class UserResource
 	private AuthenticationManager authenticationManager;
 
 
+	@GET
+	@Path("list")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<User> getAll(){
+		return userService.findAll();
+	}	
+	
 	/**
 	 * Retrieves the currently logged in user.
 	 * 
@@ -48,7 +57,7 @@ public class UserResource
 	public UserTransfer getUser()
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Object principal = authentication.getPrincipal();
+		Object principal = authentication != null ? authentication.getPrincipal() : "anonymousUser";
 		if (principal instanceof String && ((String) principal).equals("anonymousUser")) {
 			throw new WebApplicationException(401);
 		}

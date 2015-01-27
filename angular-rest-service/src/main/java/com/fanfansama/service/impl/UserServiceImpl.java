@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 /**
  * Created by fanfan on 12/01/2015.
@@ -36,4 +38,10 @@ public class UserServiceImpl implements UserService {
 	{
 		return userDao.findOneByName(name);
 	}
+
+	@Transactional(readOnly = true)
+	public List<User> findAll(){
+		return userDao.findAll();
+	}
+
 }
