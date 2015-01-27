@@ -1,23 +1,24 @@
 package com.fanfansama.web.config;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.ServerProperties;
 
-import javax.ws.rs.ApplicationPath;
 import java.util.logging.Logger;
 
-@ApplicationPath("api")
+@Slf4j
 public class MyJerseyRestAppConfig extends ResourceConfig
 {
- 
-    // http://blog.xebia.fr/2014/04/22/construire-une-api-rest-avec-jersey-et-spring-sans-web-xml-ni-applicationcontext-xml-ni-getterssetters/
-    
+
     /**
     * Register JAX-RS application components.
     */    
     public MyJerseyRestAppConfig(){
         packages("com.fanfansama.web.rest.resources");
+        property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
+
         registerInstances(new LoggingFilter(Logger.getLogger(MyJerseyRestAppConfig.class.getName()), true));
 
         register(JacksonJsonProvider.class);

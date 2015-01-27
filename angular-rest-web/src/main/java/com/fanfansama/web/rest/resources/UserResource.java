@@ -34,9 +34,8 @@ public class UserResource
 	@Autowired
 	private UserService userService; //UserDetailsService
 
-/*	@Autowired
-	@Qualifier("authenticationManager")
-*/	private AuthenticationManager authManager;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
 
 	/**
@@ -76,7 +75,7 @@ public class UserResource
 	{
 		UsernamePasswordAuthenticationToken authenticationToken =
 				new UsernamePasswordAuthenticationToken(username, password);
-		Authentication authentication = this.authManager.authenticate(authenticationToken);
+		Authentication authentication = this.authenticationManager.authenticate(authenticationToken);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		/*
