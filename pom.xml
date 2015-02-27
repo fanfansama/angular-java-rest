@@ -58,11 +58,13 @@
         <maven-war.version>2.3</maven-war.version>
         <surefire-plugin.version>2.16</surefire-plugin.version>
 
-        <geb.version>0.9.3</geb.version>
-        <!--<geb.version>0.10.0</geb.version>-->
+        <geb.version>0.10.0</geb.version>
         <selenium.version>2.43.1</selenium.version>
         <spock.version>0.7-groovy-2.0</spock.version>
-        <groovy.version>2.1.8</groovy.version>
+        <groovy.version>2.3.6</groovy.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     </properties>
 
@@ -75,13 +77,14 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Geb -->
+
             <dependency>
-                <groupId>org.gebish</groupId>
-                <artifactId>geb-core</artifactId>
-                <version>${geb.version}</version>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- Geb -->
             <dependency>
                 <groupId>org.gebish</groupId>
                 <artifactId>geb-spock</artifactId>

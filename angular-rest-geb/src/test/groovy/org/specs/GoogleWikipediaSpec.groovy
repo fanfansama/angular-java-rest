@@ -1,5 +1,6 @@
 package org.specs
 
+import geb.spock.GebReportingSpec
 import org.pages.GoogleHomePage
 import org.pages.GoogleResultsPage
 import org.pages.WikipediaPage
@@ -7,7 +8,7 @@ import org.pages.WikipediaPage
 /**
  * Created by francois on 27/02/15.
  */
-class GoogleWikipediaSpec {
+class GoogleWikipediaSpec extends GebReportingSpec {
 
     def "first result for wikipedia search should be wikipedia"() {
         given:
