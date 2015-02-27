@@ -29,7 +29,7 @@ public class DataBaseInitializer
 	private PasswordEncoder passwordEncoder;
 
 
-	//@PostConstruct
+	@PostConstruct
 	public void initDataBase()
 	{
 		User userUser = new User("user", this.passwordEncoder.encode("user"));

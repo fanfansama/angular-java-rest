@@ -15,7 +15,7 @@ import lombok.Setter;
 public class User {
 	
 	@Id
-	@GeneratedValue
+    @GeneratedValue
 	private Long id;
 
 	@Column(unique = true, length = 16, nullable = false)
@@ -43,6 +43,6 @@ public class User {
 		this.roles.add(role);
 	}
 
-
+     public User(){}
 }
 

@@ -1,31 +1,50 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:p="http://www.springframework.org/schema/p" xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+            http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <jpa:repositories base-package="com.fanfansama.dal.*"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="username" value="sa" />
         <property name="password" value="" />
-        <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-        <property name="url" value="jdbc:hsqldb:mem:example" />
+        <property name="driverClassName" value="org.h2.Driver" />
+        <property name="url" value="jdbc:h2:mem:example;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=2;DB_CLOSE_DELAY=-1;IGNORECASE=TRUE;INIT=CREATE TABLE IF NOT EXISTS PG_CLASS (RELNAME text, RELKIND text);" />
     </bean>
-    
-    
+
+    <util:properties id="jpaProperties">
+        <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+        <prop key="hibernate.database">h2</prop>
+        <prop key="hibernate.show_sql">false</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <!--<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>-->
+    </util:properties>
+
+<!--
+       <property name="hibernate.generate_statistics" value="true"/>
+       <property name="hibernate.cache.use_second_level_cache" value="false"/>
+       <property name="hibernate.cache.use_query_cache" value="true"/>
+       <property name="hibernate.cache.use_minimal_puts" value="true"/>
+
+       <property name="hibernate.cache.region.factory_class"
+                 value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory"/>
+                        -->
+
+
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource"
           p:persistenceProviderClass="org.hibernate.jpa.HibernatePersistenceProvider"
           p:packagesToScan="com.*.com.fanfansama.dal.model"
-          p:persistenceUnitName="examplePersistanceUnit"
+          p:persistenceUnitName="examplePU"
+          p:jpaProperties-ref="jpaProperties"
           p:jpaVendorAdapter-ref="jpaVendorAdapter"/>
     <!-- depends-on="flyway" -->
 
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="generateDdl" value="true" />
         <property name="showSql" value="true" />
+        <property name="generateDdl" value="true" />
     </bean>
 
 </beans>
