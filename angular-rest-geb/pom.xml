@@ -11,7 +11,8 @@
 
     <artifactId>angular-rest-geb</artifactId>
     <packaging>jar</packaging>
-
+    <name>Module GEB</name>
+    
     <dependencies>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>

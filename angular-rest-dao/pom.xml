@@ -6,7 +6,7 @@
     <artifactId>angular-rest-dao</artifactId>
     <packaging>jar</packaging>
 
-    <name>Demo DAO</name>
+    <name>Module DAO</name>
 
     <parent>
         <groupId>com.fanfansama.poc</groupId>

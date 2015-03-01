@@ -5,7 +5,7 @@
     <artifactId>angular-rest-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>Demo Service</name>
+    <name>Module Service</name>
 
     <parent>
         <groupId>com.fanfansama.poc</groupId>

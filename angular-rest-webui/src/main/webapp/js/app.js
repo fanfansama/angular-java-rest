@@ -1,3 +1,6 @@
+
+var rest = 'http://localhost:8080/angular-rest-rs/';
+
 angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 	.config(
 		[ '$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
@@ -171,7 +174,7 @@ var services = angular.module('exampleApp.services', ['ngResource']);
 
 services.factory('UserService', function($resource) {
 	
-	return $resource('rest/user/:action', {},
+	return $resource(rest + 'rest/user/:action', {},
 			{
 				authenticate: {
 					method: 'POST',
@@ -184,5 +187,5 @@ services.factory('UserService', function($resource) {
 
 services.factory('NewsService', function($resource) {
 	
-	return $resource('rest/news/:id', {id: '@id'});
+	return $resource(rest + 'rest/news/:id', {id: '@id'});
 });
