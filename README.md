@@ -1,17 +1,33 @@
 angular-rest
 ============
 
-Angular JS 1.2.3 + JQuery + BootStrap
+# WebApp "html" (angular-rest-webui)
+* [AngularJS] - Angular JS 1.2.3
+* [JQuery] - JQuery 2
+* [BootStrap] - Boostrap 3
 
-JAX-RS 2.0 API > Jersey Restful WebService + Servlet 3
+# WebApp "REST" (angular-rest-rs)
 
-Spring > IOC FrameWork
+## Couche REST
+ * [JAX-RS 2.0 API] - 
+ * [Jersey] - Jersey Restful WebService
+ * [Servlet3] - Servlet 3
+ 
+## Couche Service Spring (angular-rest-service)  
+ * [Spring core] - IOC 
+ * [Spring Transaction] - 
+ * [Spring Security] - 
 
-Spring Data JPA > ORM Management
-The goal of Spring Data repository abstraction is to significantly reduce the amount of boilerplate
-code required to implement data access layers for various persistence stores.
+## Couche Persistance (angular-rest-dao)
+ * [Spring Data JPA] - ORM 
+ * [H2] -  
 
-Spring Security > Security
+## Tests Fonctionnels 
+ * [GEB] - 
+
 
 
 Enjoy
+
+
+### ... En Construction ;-) ...
