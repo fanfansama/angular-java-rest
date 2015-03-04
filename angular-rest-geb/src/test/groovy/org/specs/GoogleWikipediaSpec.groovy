@@ -8,7 +8,7 @@ import org.pages.WikipediaPage
 /**
  * Created by francois on 27/02/15.
  */
-class GoogleWikipediaSpec extends GebReportingSpec {
+class GoogleWikipediaSpec /*extends GebReportingSpec*/ {
 
     def "first result for wikipedia search should be wikipedia"() {
         given:

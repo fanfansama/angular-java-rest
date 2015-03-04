@@ -2,7 +2,7 @@ package geb
 
 import geb.spock.GebReportingSpec
 
-class GebishOrgSpec extends GebReportingSpec {
+class GebishOrgSpec /*extends GebReportingSpec*/ {
 
     def setup(){
         given:

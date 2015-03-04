@@ -29,4 +29,4 @@ driver = {
     return d
 }
 
-baseUrl = "http://gebish.org"
+baseUrl = "http://192.168.49.45:8080/jenkins/"
