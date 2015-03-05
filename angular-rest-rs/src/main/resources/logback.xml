@@ -20,7 +20,7 @@
     <logger name="org.apache" level="WARN"/>
 
     <logger name="org.hibernate" level="WARN"/>
-    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="WARN"/>
     <logger name="org.hibernate.jpa.internal.metamodel.MetadataContext" level="OFF"/>
     <logger name="org.springframework.jdbc" level="DEBUG"/>
     <logger name="org.hibernate.cache" level="DEBUG"/>

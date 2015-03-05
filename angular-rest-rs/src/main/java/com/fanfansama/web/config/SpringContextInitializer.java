@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SpringContextInitializer implements WebApplicationInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         servletContext.setInitParameter("contextConfigLocation", "com.fanfansama.web.config");

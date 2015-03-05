@@ -14,10 +14,11 @@ import javax.ws.rs.core.MediaType;
 
 import com.fanfansama.dal.model.User;
 import com.fanfansama.service.UserService;
-import com.fanfansama.web.rest.TokenUtils;
+import com.fanfansama.web.rest.util.TokenUtils;
 import com.fanfansama.web.transfer.TokenTransfer;
 import com.fanfansama.web.transfer.UserTransfer;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,6 +29,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 
+@Slf4j
 @Component
 @Path("/user")
 public class UserResource
@@ -58,7 +60,9 @@ public class UserResource
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = authentication != null ? authentication.getPrincipal() : "anonymousUser";
+
 		if (principal instanceof String && ((String) principal).equals("anonymousUser")) {
+            log.error("SecurityContextHolder.getContext().getAuthentication() FAILED");
 			throw new WebApplicationException(401);
 		}
 		UserDetails userDetails = (UserDetails) principal;

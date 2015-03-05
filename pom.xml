@@ -238,7 +238,7 @@
         <module>angular-rest-dao</module>
         <module>angular-rest-service</module>
         <module>angular-rest-rs</module>
-        <module>angular-rest-geb</module>
+        <!--<module>angular-rest-geb</module>  -->
         <module>angular-rest-webui</module>
     </modules>
 

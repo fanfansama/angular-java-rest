@@ -1,5 +1,5 @@
 
-var rest = 'http://localhost:8080/angular-rest-rs/';
+var rest = '../angular-rest-rs/';
 
 angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 	.config(
@@ -54,7 +54,9 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 		    $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
 		        return {
 		        	'request': function(config) {
-		        		var isRestCall = config.url.indexOf('rest') == 0;
+		        		var isRestCall = config.url.indexOf(rest +'rest') == 0;
+                        console.log("config.url : " + config.url);
+                        console.log("isRestCall : " + isRestCall);
 		        		if (isRestCall && angular.isDefined($rootScope.authToken)) {
 		        			var authToken = $rootScope.authToken;
 		        			if (exampleAppConfig.useAuthTokenHeader) {
@@ -81,10 +83,12 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 		$rootScope.hasRole = function(role) {
 			
 			if ($rootScope.user === undefined) {
+                console.log("user undefined");
 				return false;
 			}
 			
 			if ($rootScope.user.roles[role] === undefined) {
+                console.log("user role undefined");
 				return false;
 			}
 			
@@ -92,6 +96,7 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 		};
 		
 		$rootScope.logout = function() {
+            console.log("user logout");
 			delete $rootScope.user;
 			delete $rootScope.authToken;
 			$cookieStore.remove('authToken');
@@ -108,7 +113,9 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services'])
 				$rootScope.user = user;
 				$location.path(originalPath);
 			});
-		}
+		} else {
+            console.log("authToken undefined");
+        }
 		
 		$rootScope.initialized = true;
 	});
@@ -158,10 +165,12 @@ function LoginController($scope, $rootScope, $location, $cookieStore, UserServic
 		UserService.authenticate($.param({username: $scope.username, password: $scope.password}), function(authenticationResult) {
 			var authToken = authenticationResult.token;
 			$rootScope.authToken = authToken;
-			if ($scope.rememberMe) {
+			console.log("login remember me : " +$scope.rememberMe);
+            if ($scope.rememberMe) {
 				$cookieStore.put('authToken', authToken);
 			}
 			UserService.get(function(user) {
+                console.log("user getservice : " + user);
 				$rootScope.user = user;
 				$location.path("/");
 			});

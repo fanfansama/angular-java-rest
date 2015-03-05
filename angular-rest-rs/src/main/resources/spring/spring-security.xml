@@ -27,8 +27,8 @@
             <security:intercept-url pattern="/js/**" access="permitAll"/>
             <security:intercept-url pattern="/fonts/**" access="permitAll"/>
             <security:intercept-url pattern="*.ico" access="permitAll"/>
-            <security:intercept-url pattern="/user/list" access="permitAll" />
-            <security:intercept-url pattern="/user" access="permitAll" />
+            <security:intercept-url pattern="/user/list" access="hasRole('admin')" />
+            <security:intercept-url pattern="/user" access="hasRole('user')" />
             <security:intercept-url pattern="/user/authenticate" access="permitAll" />
             <security:intercept-url method="GET" pattern="/news/**" access="hasRole('user')" />
             <security:intercept-url method="PUT" pattern="/news/**" access="hasRole('admin')" />

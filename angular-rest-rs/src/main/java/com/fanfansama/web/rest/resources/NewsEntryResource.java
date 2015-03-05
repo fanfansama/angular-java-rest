@@ -40,7 +40,7 @@ public class NewsEntryResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String list() throws IOException
 	{
-		log.info("list()");
+		log.info("news list()");
 
 		ObjectWriter viewWriter;
 		if (this.isAdmin()) {
